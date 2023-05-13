@@ -20,4 +20,15 @@ public class CabInvoiceTest {
         double result = cabInvoiceGenerator.calculateFare(0.2,1);
         Assertions.assertEquals(5.0,result);
     }
+
+    @Test
+    public void givenMultipleRidesShouldReturnTotalFare(){
+        CabInvoiceGenerator cabInvoiceGenerator = new CabInvoiceGenerator();
+        Ride[] rides = {
+                new Ride(2.0,2), new Ride(3.0,1)
+        };
+
+        double result = cabInvoiceGenerator.calculateFare(rides);
+        Assertions.assertEquals(53.0,result);
+    }
 }
